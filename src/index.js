@@ -12,6 +12,9 @@ function generatePoem(event) {
   event.preventDefault();
   let instructionsInput = document.querySelector("#user-instructions");
   let apiKey = "2a9cba14de5ca8505328abf7tf796fof";
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class="blink_me"> ⏳ Generating a poem for you about ${instructionsInput.value}</div>`;
   let prompt = `create a haiku about ${instructionsInput.value} and sperate each line with a <br />. At the end of the haiku put SheCodes AI in <strong>`;
   let context = "You are a haiku expert";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
